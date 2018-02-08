@@ -77,14 +77,12 @@ public class PracticeWork_1
     }
     
     /**
-     * INSERER THE NUMBER OF TRIANGLES POUR COMPARER ET CHANGER LA CLASSE READINTEGER;
+     * INSERER THE NUMBER OF TRIANGLES POUR COMPARER;
             * Coder avec des matrices puisque c'est possible d'entrer des nombre colonnes;
             * Le nombre des colonnes sera le nombre de triangles à comparer 
             * Le nombre de rangées sera constant parce que ce sont juste trois coté;
             * Changer la structure de la fonction wellcome pour entrer the nobre des
             * triangles et ses cotés;
-     * SEPARER LA FONCTION ANALYSE FROM TRIANGLE AND CREER UNE SOUSCLASSE TRIANGLE TYPE;
-            * Le constructor sera base sur les données da la classe triangle; 
      * CREER UNE SOUS CLASSE POUR COMPARER LES TRIANGLES LA COMPAHAISON PEUT ETRE FAIT PAR
      * DES BOUCLES EMBRIQUE;
             * La compahaison puet être fait pour des bucles embriqués problablement;

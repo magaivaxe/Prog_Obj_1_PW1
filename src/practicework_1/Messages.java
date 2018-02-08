@@ -16,7 +16,7 @@ public class Messages
     
     //------------- Constructors -------------s
     /**
-     * @param size
+     * @param size of size array to add the data sides
      */
     public Messages (int size) { this.size = size; }
     
@@ -70,24 +70,26 @@ public class Messages
                                "The number isn't 0 or 1.");
         //Local variables
         boolean ok;
-        System.out.println("\n------------------------------------------------\n"
-                        +  "                    GAME OVER                   \n" +
-                           "------------------------------------------------\n"
-                        +  "Are you play again?\n");
+        System.out.print("\n------------------------------------------------\n"
+                      +  "                    GAME OVER                   \n" +
+                         "------------------------------------------------\n"
+                      +  "Are you play again?\n");
         // Atribution true or false to ok
         ok = read.yesOrNot();
         return ok;
     }
     /**
      * 
-     * @param type
-     * @param matTrigo
+     * @param type the triangle type calculated by the class Types
+     * @param matTrigo the matrix that have trigo values: cos, sin, tan and angles
      */
     public void getDescription(String type, final double [][] matTrigo)
     { 
-        //
+        //Local variables
         final int COS, SIN, TAN, ANGLES;
         COS = 0; SIN = 1; TAN = 2; ANGLES = 3;
+        //
+        System.out.print("The triangle is a " + type +" and has:\n");
         // 0 <= i < 4. i: cos, sin, tan, angles
         for (int i = 0; i < matTrigo[ANGLES].length; i++)
         {
@@ -96,31 +98,28 @@ public class Messages
             {
             //
                 case 0:
-                    //
-                    System.out.print("The triangle is a " + type +" and has:\n");
+                    System.out.print("------------------------------\n");
                     //
                     for (int j = 0; j < matTrigo[ANGLES].length; j++)
                     {
-                        System.out.print("cos(" + matTrigo[ANGLES][j] + ") = " + matTrigo[COS][j] + "\t");
+                        System.out.print("cos(" + matTrigo[ANGLES][j] + ") = " + matTrigo[COS][j] + "\n");
                     }  
                     break;
             //
                 case 1:
-                    //
-                    System.out.print("\n");
+                    System.out.print("------------------------------\n");
                     //
                     for (int j = 0; j < matTrigo[ANGLES].length; j++)
                     {
-                        System.out.print("sin(" + matTrigo[ANGLES][j] + ") = " + matTrigo[SIN][j] + "\t");
+                        System.out.print("sin(" + matTrigo[ANGLES][j] + ") = " + matTrigo[SIN][j] + "\n");
                     }   
                     break;
                 case 2:
-                    //
-                    System.out.print("\n");
+                    System.out.print("------------------------------\n");
                     //
                     for (int j = 0; j < matTrigo[ANGLES].length; j++)
                     {
-                        System.out.print("tan(" + matTrigo[ANGLES][j] + ") = " + matTrigo[TAN][j] + "\t");
+                        System.out.print("tan(" + matTrigo[ANGLES][j] + ") = " + matTrigo[TAN][j] + "\n");
                     }   
                     break;
                 default:
