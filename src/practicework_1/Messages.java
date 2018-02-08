@@ -11,12 +11,17 @@ package practicework_1;
 public class Messages
 {
     //----------- Global Variables -----------
-    final int SIZE;
+    private final int size;
     //----------------------------------------
+    
+    //------------- Constructors -------------s
     /**
-     * @param SIZE Sides array size that is used to save the sides triangle.
+     * @param size
      */
-    public Messages (final int SIZE) { this.SIZE = SIZE; }
+    public Messages (int size) { this.size = size; }
+    
+    
+    
     //-------- Objects declarations ----------
     ReadInteger read = new ReadInteger();
     //----------------------------------------
@@ -26,7 +31,7 @@ public class Messages
     public int[] wellcome()
     {
         //Local variables
-        int [] sides = new int [SIZE];
+        int [] sides = new int [size];
         final String [] SIDE_NAMES = {"AB", "BC", "CA"};
         //
         System.out.println("------------------------------------------------\n"
@@ -38,74 +43,94 @@ public class Messages
         {
             System.out.println("Side " + (SIDE_NAMES[i]) + ": ");
             //Side is > 0 else side = 1
-            int side = read.trueSide(SIZE);
+            int side = read.trueSide(size);
             //Add side to array sides
             sides[i] = side;
         }
-        return sides;
+        //Triangle object to call the function triangle inequality
+        Triangle triangleMsg = new Triangle(sides);
+        //If true return the sides, else return wellcome to recall
+        if (triangleMsg.triangleInequality()) { return sides; }
+        else 
+        {
+            System.out.print("Triangle inequality don't respected.\n");
+            //
+            return wellcome();
+        }
     }
     /**
-     * 
-     * @param args The arguments to play again
+     * Function to know if the player goes play again or not.
+     * @return true if the player goes player again else false
      */
-    public void gameOver(String[] args)
+    public boolean gameOver()
     {
         //Local variables
         boolean ok;
-        //
-        System.out.println("------------------------------------------------\n"
+        System.out.println("\n------------------------------------------------\n"
                         +  "                    GAME OVER                   \n" +
                            "------------------------------------------------\n"
                         +  "Are you play again? 0 is not 1 is yes...\n");
-        //
+        // Atribution true or false to ok
         ok = read.yesOrNot();
+        return ok;
+    }
+    /**
+     * 
+     * @param type
+     * @param matTrigo
+     */
+    public void getDescription(String type, final double [][] matTrigo)
+    { 
         //
-        if (ok) { PracticeWork_1.main(args);
+        final int COS, SIN, TAN, ANGLES;
+        COS = 0; SIN = 1; TAN = 2; ANGLES = 3;
+        // 0 <= i < 4. i: cos, sin, tan, angles
+        for (int i = 0; i < matTrigo[ANGLES].length; i++)
+        {
+            //
+            switch (i) 
+            {
+            //
+                case 0:
+                    //
+                    System.out.print("The triangle " + type +" has:\n");
+                    //
+                    for (int j = 0; j < matTrigo[ANGLES].length; j++)
+                    {
+                        System.out.print("cos" + matTrigo[ANGLES][j] + " = " + matTrigo[COS][j] + "\t");
+                    }  
+                    break;
+            //
+                case 1:
+                    //
+                    System.out.print("\n");
+                    //
+                    for (int j = 0; j < matTrigo[ANGLES].length; j++)
+                    {
+                        System.out.print("sin" + matTrigo[ANGLES][j] + " = " + matTrigo[SIN][j] + "\t");
+                    }   
+                    break;
+                case 2:
+                    //
+                    System.out.print("\n");
+                    //
+                    for (int j = 0; j < matTrigo[ANGLES].length; j++)
+                    {
+                        System.out.print("tan" + matTrigo[ANGLES][j] + " = " + matTrigo[TAN][j] + "\t");
+                    }   
+                    break;
+                default:
+                    //
+                    System.out.print("\n");
+                    return;
+            }
+            
         }
-        else {System.out.println("Good bye!"); }
+        
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
     
     
@@ -129,3 +154,15 @@ public class Messages
     
     
 }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+

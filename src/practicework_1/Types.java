@@ -27,42 +27,36 @@ public class Types extends Triangle
     }
     
     /**
-     * Function to analyse the triangle types
+     * @return The triangles types: Equilateral; Retangle; Isoceles; Scalene.
      */
-    public void analyse()
+    public String analyse()
     {     
         // Equilateral triangle-----------------------------------
         isEquilateral = itsEquilateral();
         // Equilateral condition
-        if (isEquilateral) { answer("Equilateral triangle."); return; }
+        if (isEquilateral) { return "equilateral triangle"; }
         // Rectangle triangle------------------------------------
         isRetangle = itsRetangle();
         // Retangle condition
         if (isRetangle)
         {
-            answer("Triangle retangle");
+            String textA = "triangle retangle";
             //Isoceles triangle
             isIsoceles = itsIsoceles();
             //Isoceles condition
-            if (isIsoceles) { answer(" and isoceles too."); }
+            if (isIsoceles) { String textB = " and isoceles"; return textA + textB; }
             //Scalene triangle condition
-            else { answer(" and scalene too."); }
-            return;
+            else { String textC = " and scalene"; return textA + textC; }
         }
         //Isoceles triangle---------------------------------------
         isIsoceles = itsIsoceles();
         //Isoceles condition
-        if (isIsoceles && !isEquilateral) { answer(" It is isoceles."); }
+        if (isIsoceles && !isEquilateral) { return "isoceles triangle"; }
         // Scalene triangle---------------------------------------
         isScalene = itsScalene();
-        if (isScalene) { answer("Scalene triangle."); }
-        
+        if(isScalene) { return "scalene triangle"; }
+        else {return "This is not a triangle.";}
     }
-    /**
-     * @param type String to print
-     */
-    private void answer(String type)
-    { System.out.println(type); }
     /**
      * @return true if the triangle is equilateral.
      */
@@ -74,11 +68,9 @@ public class Types extends Triangle
      * @return true if any angle value is 90
      */
     private boolean itsRetangle()
-    {
-        for (int i = 0; i < ANGLES.length; i++)
-        { return ANGLES[i] == 90; }
-        return false;     
-    }
+    {return (ANGLES[super.A] == 90 ||
+             ANGLES[super.B] == 90 ||
+             ANGLES[super.C] == 90);}
     /**
      * @return True if two sides are equals
      */

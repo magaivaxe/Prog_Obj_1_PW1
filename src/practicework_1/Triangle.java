@@ -13,26 +13,24 @@ public class Triangle
 {
     //---------- Constructor Variables ----------
     final int [] SIDES;
-    private final int SIZE;
-    final int AB, BC, CA, A, B, C;
+    private final int SIZE = 3;
+    //Triangle's sides indexes and angles indexes
+    final int AB = 0, BC = 1, CA = 2, A = 0, B = 1, C = 2;
     //----------- Class constructor -------------
-    public Triangle(int [] sides) 
-    { 
-        //Sides array
-        this.SIDES = sides;
-        //Matrice and arrays sizes
-        SIZE = 3;
-        //Triangle's sides indexes
-        AB = 0; BC = 1; CA = 2;
-        //Triangle's angles indexes
-        A = 0; B = 1; C = 2;
-        
-    }
+    public Triangle(int [] sides) { this.SIDES = sides; }
     //------------ Global variables -------------
     private double sumAngles;
     private double [] arrayCos, arraySin, arrayTan, arrayAngles;
     private double [][] matTrigo;
     //-------------------------------------------
+    /**
+     * 
+     * @return True if the inequality is respected.
+     */
+    public boolean triangleInequality()
+    { return (SIDES[AB] < SIDES[BC] + SIDES[CA] &&
+              SIDES[BC] < SIDES[AB] + SIDES[CA] &&
+              SIDES[CA] < SIDES[AB] + SIDES[BC]); }
     /**
      * @return Perimeter that have the side array sum value
      */
@@ -82,9 +80,9 @@ public class Triangle
         AB2 = Math.pow(SIDES[AB], EXP);
         BC2 = Math.pow(SIDES[BC], EXP);
         //Set cos array
-        arrayCos[A] = (CA2 + AB2 - BC2) / EXP * SIDES[CA] * SIDES[AB];
-        arrayCos[B] = (AB2 + BC2 - CA2) / EXP * SIDES[AB] * SIDES[BC];
-        arrayCos[C] = (BC2 + CA2 - AB2) / EXP * SIDES[BC] * SIDES[CA];
+        arrayCos[A] = (CA2 + AB2 - BC2) / (EXP * SIDES[CA] * SIDES[AB]);
+        arrayCos[B] = (AB2 + BC2 - CA2) / (EXP * SIDES[AB] * SIDES[BC]);
+        arrayCos[C] = (BC2 + CA2 - AB2) / (EXP * SIDES[BC] * SIDES[CA]);
         //Sin and tan arrays loop
         for (int i = 0; i < arrayCos.length; i++)
         {

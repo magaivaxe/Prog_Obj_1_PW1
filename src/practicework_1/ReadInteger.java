@@ -55,20 +55,14 @@ public class ReadInteger
     }
     /**
      * 
-     * @return The bool if ok = 1 0r 0
+     * @return true if ok = 1 else false to ok = 0
      */
     public boolean yesOrNot()
     {
-        //
+        //Receive the value from readInteger
         int ok = readInteger();
-        //
-        if (ok != 0 || ok != 1) { yesOrNot(); }
-        //
-        else 
-        {
-            //
-            return ok != 0;
-        }
-        return false;
+        //Condition to read 1 and 0
+        if (ok == 1 || ok == 0) {} else { yesOrNot();}
+        return ok == 1;
     }
 }

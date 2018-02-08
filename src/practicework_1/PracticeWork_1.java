@@ -16,6 +16,7 @@ public class PracticeWork_1
     static int [] sides;
     static double [][] matTrigo;
     static double [] arrayAngles;
+    static boolean again = true;
     //----------------------------------------
 
     /**
@@ -23,15 +24,18 @@ public class PracticeWork_1
      */
     public static void main(String[] args) 
     {
-        //-------------- Variables assignement ---------------
+        while (again == true)
+        {
+        //----------- Global variables assignement -----------
         SIZE = 3; MAT_SIZE = 4; COS = 0; SIN = 1; TAN = 2; ANGLES = 3;
         sides = new int [SIZE];
         matTrigo = new double [SIZE][MAT_SIZE];
+        //-------------- Variables assignement ---------------
+        String analyse;
         //--------------- Objects declarations ---------------
         Messages messages;
         Triangle triangle;
         Types types;
-        ReadInteger read;
         //----------------------------------------------------
         //Messages object atribution
         messages = new Messages(SIZE);
@@ -43,10 +47,33 @@ public class PracticeWork_1
         triangle.getArea();
         //Triganometry values calculation
         matTrigo = triangle.setTrigonometry();
-        //
+        //Constructor types for analyse of triangles
         types = new Types(sides, matTrigo[ANGLES]);
-        types.analyse();
-        messages.gameOver(args);
+        analyse = types.analyse();
+        //
+        prinTest(analyse);
+        printestMatrix(matTrigo);
+        //
+        messages.getDescription(analyse, matTrigo);
+        //
+        again = messages.gameOver();
+        }
+    }
+    /**
+     * @param type String to print
+     */
+    private static void prinTest(String test)
+    { System.out.println(test); }
+    private static void printestMatrix(double [][] matrix)
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            System.out.print("------------\n");
+            for(int j = 0; j < 3; j++)
+            {
+                System.out.print(matrix[i][j] + "\n");
+            }
+        }
     }
     
     /**
