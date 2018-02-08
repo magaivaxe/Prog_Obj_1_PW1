@@ -40,7 +40,7 @@ public class Types extends Triangle
         // Retangle condition
         if (isRetangle)
         {
-            String textA = "triangle retangle";
+            String textA = "retangle triangle";
             //Isoceles triangle
             isIsoceles = itsIsoceles();
             //Isoceles condition

@@ -20,10 +20,8 @@ public class Messages
      */
     public Messages (int size) { this.size = size; }
     
-    
-    
     //-------- Objects declarations ----------
-    ReadInteger read = new ReadInteger();
+    ReadInteger read;
     //----------------------------------------
     /**
      * @return sides array values.
@@ -33,6 +31,9 @@ public class Messages
         //Local variables
         int [] sides = new int [size];
         final String [] SIDE_NAMES = {"AB", "BC", "CA"};
+        //Object to read sides
+        read = new ReadInteger("Enter the triangle side:",
+                               "This isn't a triangle side");
         //
         System.out.println("------------------------------------------------\n"
                         +  "              Triangle calculation              \n" +
@@ -64,12 +65,15 @@ public class Messages
      */
     public boolean gameOver()
     {
+        //Object to read the yes or not
+        read = new ReadInteger("0 to don't play and 1 to play.",
+                               "The number isn't 0 or 1.");
         //Local variables
         boolean ok;
         System.out.println("\n------------------------------------------------\n"
                         +  "                    GAME OVER                   \n" +
                            "------------------------------------------------\n"
-                        +  "Are you play again? 0 is not 1 is yes...\n");
+                        +  "Are you play again?\n");
         // Atribution true or false to ok
         ok = read.yesOrNot();
         return ok;
@@ -93,11 +97,11 @@ public class Messages
             //
                 case 0:
                     //
-                    System.out.print("The triangle " + type +" has:\n");
+                    System.out.print("The triangle is a " + type +" and has:\n");
                     //
                     for (int j = 0; j < matTrigo[ANGLES].length; j++)
                     {
-                        System.out.print("cos" + matTrigo[ANGLES][j] + " = " + matTrigo[COS][j] + "\t");
+                        System.out.print("cos(" + matTrigo[ANGLES][j] + ") = " + matTrigo[COS][j] + "\t");
                     }  
                     break;
             //
@@ -107,7 +111,7 @@ public class Messages
                     //
                     for (int j = 0; j < matTrigo[ANGLES].length; j++)
                     {
-                        System.out.print("sin" + matTrigo[ANGLES][j] + " = " + matTrigo[SIN][j] + "\t");
+                        System.out.print("sin(" + matTrigo[ANGLES][j] + ") = " + matTrigo[SIN][j] + "\t");
                     }   
                     break;
                 case 2:
@@ -116,7 +120,7 @@ public class Messages
                     //
                     for (int j = 0; j < matTrigo[ANGLES].length; j++)
                     {
-                        System.out.print("tan" + matTrigo[ANGLES][j] + " = " + matTrigo[TAN][j] + "\t");
+                        System.out.print("tan(" + matTrigo[ANGLES][j] + ") = " + matTrigo[TAN][j] + "\t");
                     }   
                     break;
                 default:
@@ -128,6 +132,8 @@ public class Messages
         }
         
     }
+
+  
     
     
    

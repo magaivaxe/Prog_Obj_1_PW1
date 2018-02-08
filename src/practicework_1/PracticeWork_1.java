@@ -51,8 +51,8 @@ public class PracticeWork_1
         types = new Types(sides, matTrigo[ANGLES]);
         analyse = types.analyse();
         //
-        prinTest(analyse);
-        printestMatrix(matTrigo);
+        //prinTest(analyse);
+        //printestMatrix(matTrigo);
         //
         messages.getDescription(analyse, matTrigo);
         //

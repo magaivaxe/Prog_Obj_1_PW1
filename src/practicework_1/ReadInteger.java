@@ -9,10 +9,20 @@ import java.io.InputStreamReader;
 
 /**
  * 
- * @author eleves
+ * @author Rebecca and modified by your student Marcos Paulo Salgado Gomes
  */
 public class ReadInteger
 {
+    //------- Contructor variables ---------
+    private final String RIGTH_TEXT, WRONG_TEXT;
+    //--------------------------------------
+    
+    public ReadInteger(String rigthText, String wrongText)
+    {
+        this.RIGTH_TEXT = rigthText;
+        this.WRONG_TEXT = wrongText;
+    }
+    
     /**
      * @return the integer value entry on terminal
      */
@@ -21,7 +31,7 @@ public class ReadInteger
         int entry = 0;
         while (entry != -1)
         {
-            System.out.println("Enter a positive integer:");
+            System.out.println(RIGTH_TEXT);
             try
             {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -30,7 +40,7 @@ public class ReadInteger
             }
             catch (NumberFormatException e)
             {
-                System.out.println("Ceci n'est pas un entier!");
+                System.out.println(WRONG_TEXT);
             }
             catch (IOException e)
             {
