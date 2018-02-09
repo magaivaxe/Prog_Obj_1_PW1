@@ -7,7 +7,7 @@ package practicework_1;
 
 /**
  * 
- * @author eleves
+ * @author Marcos Paulo Salgado Gomes
  */
 public class Triangle
 {

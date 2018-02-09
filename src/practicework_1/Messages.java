@@ -11,51 +11,43 @@ package practicework_1;
 public class Messages
 {
     //----------- Global Variables -----------
-    private final int size;
+    private final int SIZE;
+    private int [] sides;
     //----------------------------------------
     
-    //------------- Constructors -------------s
+    //------------- Constructors -------------
     /**
      * @param size of size array to add the data sides
      */
-    public Messages (int size) { this.size = size; }
+    public Messages (int size, int [] sides) 
+    {
+        this.SIZE = size; this.sides = sides;
+    }
     
     //-------- Objects declarations ----------
     ReadInteger read;
+    SetTriangles setTriangles;
+    Triangle triangle;
     //----------------------------------------
     /**
      * @return sides array values.
      */
     public int[] wellcome()
     {
-        //Local variables
-        int [] sides = new int [size];
-        final String [] SIDE_NAMES = {"AB", "BC", "CA"};
-        //Object to read sides
-        read = new ReadInteger("Enter the triangle side:",
-                               "This isn't a triangle side");
-        //
         System.out.println("------------------------------------------------\n"
                         +  "              Triangle calculation              \n" +
-                           "------------------------------------------------\n"
-                        +  "Enter the sides!\n");
-        //Loop to set sides 
-        for(int i = 0; i < 3; i++)
-        {
-            System.out.println("Side " + (SIDE_NAMES[i]) + ": ");
-            //Side is > 0 else side = 1
-            int side = read.trueSide(size);
-            //Add side to array sides
-            sides[i] = side;
-        }
+                           "------------------------------------------------\n");
+        //
+        setTriangles = new SetTriangles(SIZE);
+        //
+        sides = setTriangles.setSides();
         //Triangle object to call the function triangle inequality
-        Triangle triangleMsg = new Triangle(sides);
+        triangle = new Triangle(sides);
         //If true return the sides, else return wellcome to recall
-        if (triangleMsg.triangleInequality()) { return sides; }
+        if (triangle.triangleInequality()) { return sides; }
         else 
         {
             System.out.print("Triangle inequality don't respected.\n");
-            //
             return wellcome();
         }
     }

@@ -38,7 +38,7 @@ public class PracticeWork_1
         Types types;
         //----------------------------------------------------
         //Messages object atribution
-        messages = new Messages(SIZE);
+        messages = new Messages(SIZE, sides);
         //Sides values from user
         sides = messages.wellcome();
         //Triangle object stribution
@@ -86,7 +86,6 @@ public class PracticeWork_1
      * CREER UNE SOUS CLASSE POUR COMPARER LES TRIANGLES LA COMPAHAISON PEUT ETRE FAIT PAR
      * DES BOUCLES EMBRIQUE;
             * La compahaison puet être fait pour des bucles embriqués problablement;
-     * INSERER LE HUITIÉME ITEM QUI EST LA DRESCRIPTION DANS LA CLASSE MESSAGES;
      * CREATE A CONSTRUCTOR VIDE TO SIDES EQUALS TO 1.
      */
     
