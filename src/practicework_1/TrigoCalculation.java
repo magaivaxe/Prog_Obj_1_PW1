@@ -34,8 +34,11 @@ public class TrigoCalculation
     private Messages messages = new Messages();
     private ReadInteger read;
     private SetTriangles setTriangles;
+    private Descriptions describe = new Descriptions();
     //-----------------------------------------
-    
+    /**
+     * Trigo calculation game
+     */
     public void mainGame()
     {
         sides = triangleSides();
@@ -49,10 +52,7 @@ public class TrigoCalculation
         types = new Types(sides, matTrigo[ANGLES]);
         analyse = types.analyse();
         //
-        //prinTest(analyse);
-        //printestMatrix(matTrigo);
-        //
-        messages.getDescription(analyse, area, matTrigo);
+        describe.getDescription(analyse, area, matTrigo);
     }
     
     /**
@@ -64,10 +64,7 @@ public class TrigoCalculation
         //Local variables
         int [] sidesToReturn;
         //Game announce
-        System.out.println("------------------------------------------------\n"
-                        +  "                Trigo calculation               \n" +
-                           "------------------------------------------------\n"
-                         + "Do you want set triangle sides?");
+        messages.showGame("TRIGO CALCULATION", "Set sides");
         //
         read = new ReadInteger("0: NO and 1: YES.", "Enter 0 or 1 values!");
         //If true set triangle sides else sides equals to 1
@@ -79,7 +76,7 @@ public class TrigoCalculation
         sidesToReturn = setTriangles.setSides();
         //Triangle object to call the function triangle inequality
         triangle = new Triangle(sidesToReturn);
-        //If true return the sides, else return wellcome to recall
+        //If true return the sides, else return function to reset
         if (triangle.triangleInequality()) { return sidesToReturn; }
         else 
         {
