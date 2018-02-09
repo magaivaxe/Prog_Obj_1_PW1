@@ -4,20 +4,15 @@
  * and open the template in the editor.
  */
 package practicework_1;
-
 /**
  *
- * @author Marcos Gomes Main function
+ * @author Marcos Gomes Practice work 1
  */
 public class PracticeWork_1
 {
     //----------- Global Variables -----------
-    private static int SIZE, MAT_SIZE, COS, SIN, TAN, ANGLES, option;
-    private static double area;
-    private static int [] sides;
-    private static double [][] matTrigo;
+    private static int option;
     private static boolean again = true;
-    private static String analyse;
     //----------------------------------------
 
     /**
@@ -27,54 +22,26 @@ public class PracticeWork_1
     {
         while (again == true)
         {
-        //----------- Global variables assignement -----------
-        SIZE = 3; MAT_SIZE = 4; COS = 0; SIN = 1; TAN = 2; ANGLES = 3;
-        sides = new int [SIZE];
-        matTrigo = new double [SIZE][MAT_SIZE];
         //--------------- Objects declarations ---------------
-        Messages messages;
-        Triangle triangle;
-        Types types;
+        Messages messages = new Messages();
+        TrigoCalculation trigo = new TrigoCalculation();
         //----------------------------------------------------
-        //Messages object atribution
-        messages = new Messages(SIZE, sides);
         option = messages.wellcome();
-        //Sides values from user
-        sides = messages.trigoCalculation();
-        //Triangle object stribution
-        triangle = new Triangle(sides);
-        //Area calculation
-        area = triangle.getArea();
-        //Triganometry values calculation
-        matTrigo = triangle.setTrigonometry();
-        //Constructor types for analyse of triangles
-        types = new Types(sides, matTrigo[ANGLES]);
-        analyse = types.analyse();
-        //
-        //prinTest(analyse);
-        //printestMatrix(matTrigo);
-        //
-        messages.getDescription(analyse, area, matTrigo);
-        //
+        //Options game
+        switch (option)
+        {
+            case 1: trigo.mainGame();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+        //Play again: true or false
         again = messages.gameOver();
         }
     }
-    /**
-     * @param type String to print
-     */
-    private static void prinTest(String test)
-    { System.out.println(test); }
-    private static void printestMatrix(double [][] matrix)
-    {
-        for(int i = 0; i < 4; i++)
-        {
-            System.out.print("------------\n");
-            for(int j = 0; j < 3; j++)
-            {
-                System.out.print(matrix[i][j] + "\n");
-            }
-        }
-    }
+    
     
     /**
      * INSERER THE NUMBER OF TRIANGLES POUR COMPARER;

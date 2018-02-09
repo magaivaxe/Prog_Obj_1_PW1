@@ -80,9 +80,9 @@ public class Triangle
         AB2 = Math.pow(SIDES[AB], EXP);
         BC2 = Math.pow(SIDES[BC], EXP);
         //Set cos array
-        arrayCos[A] = (CA2 + AB2 - BC2) / (EXP * SIDES[CA] * SIDES[AB]);
-        arrayCos[B] = (AB2 + BC2 - CA2) / (EXP * SIDES[AB] * SIDES[BC]);
-        arrayCos[C] = (BC2 + CA2 - AB2) / (EXP * SIDES[BC] * SIDES[CA]);
+        arrayCos[A] = (CA2 + AB2 - BC2)/(EXP * SIDES[CA] * SIDES[AB]);
+        arrayCos[B] = (AB2 + BC2 - CA2)/(EXP * SIDES[AB] * SIDES[BC]);
+        arrayCos[C] = (BC2 + CA2 - AB2)/(EXP * SIDES[BC] * SIDES[CA]);
         //Sin and tan arrays loop
         for (int i = 0; i < arrayCos.length; i++)
         {

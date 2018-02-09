@@ -11,19 +11,14 @@ package practicework_1;
 public class Messages
 {
     //----------- Global Variables -----------
-    private final int SIZE;
-    private int [] sides;
+    
     //----------------------------------------
     
     //------------- Constructors -------------
     /**
-     * @param size Size array to add the data sides
-     * @param sides Array to add the sides values
+     * Constructor void
      */
-    public Messages (int size, int [] sides) 
-    {
-        this.SIZE = size; this.sides = sides;
-    }
+    public Messages () { }
     
     //-------- Objects declarations ----------
     ReadInteger read;
@@ -37,44 +32,16 @@ public class Messages
     public int wellcome()
     {
         int option;
-        System.out.print("Wellcome to TRIANGLE'S GAME!!!"
-                       + "What do you want to play?"
-                       + "1 - Trigo Calculation."
-                       + "2 - Equals or Similars."
-                       + "3 - Find angles or sides");
+        System.out.print("Wellcome to TRIANGLE'S GAME!!!\n"
+                       + "What do you want to play?\n"
+                       + "1 - Trigo Calculation.\n"
+                       + "2 - Equals or Similars.\n"
+                       + "3 - Find angles or sides\n");
         //
-        read = new ReadInteger("Enter the options.", "It doesn't the option.");
+        read = new ReadInteger("Enter your option:", 
+                               "It doesn't an option.");
         return option = read.playOptions();
     }
-    /**
-     * @return sides array values.
-     */
-    public int [] trigoCalculation()
-    {
-        System.out.println("------------------------------------------------\n"
-                        +  "                Trigo calculation               \n" +
-                           "------------------------------------------------\n"
-                         + "Do you want set triangle sides?");
-        //
-        read = new ReadInteger("0 to not and 1 to yes.", "Enter 0 or 1 values.");
-        //If true set triangle sides else sides equals to 1
-        if(read.yesOrNot()){} 
-        else { return sides = new int []{1,1,1}; }
-        //Object atribution
-        setTriangles = new SetTriangles(SIZE);
-        //Set the sides triangle
-        sides = setTriangles.setSides();
-        //Triangle object to call the function triangle inequality
-        triangle = new Triangle(sides);
-        //If true return the sides, else return wellcome to recall
-        if (triangle.triangleInequality()) { return sides; }
-        else 
-        {
-            System.out.print("Triangle inequality don't respected.\n");
-            return trigoCalculation();
-        }
-    }
-    
     
     /**
      * Function to know if the player goes play again or not.
@@ -87,10 +54,10 @@ public class Messages
                                "The number isn't 0 or 1.");
         //Local variables
         boolean ok;
-        System.out.print("\n------------------------------------------------\n"
-                      +  "                    GAME OVER                   \n" +
-                         "------------------------------------------------\n"
-                      +  "Are you play again?\n");
+        System.out.println("------------------------------------------------\n"
+                        +  "                    GAME OVER                   \n"
+                        +  "------------------------------------------------\n"
+                        +  "Are you play again?\n");
         // Atribution true or false to ok
         ok = read.yesOrNot();
         return ok;
@@ -107,7 +74,7 @@ public class Messages
         final int COS, SIN, TAN, ANGLES;
         COS = 0; SIN = 1; TAN = 2; ANGLES = 3;
         //
-        System.out.print("The " + type + " has area = "+ area +""
+        System.out.print("The " + type + " has area = "+ area +"\n"
                        + "and trigonometrics datas:\n");
         // 0 <= i < 4. i: cos, sin, tan, angles
         for (int i = 0; i < matTrigo[ANGLES].length; i++)
