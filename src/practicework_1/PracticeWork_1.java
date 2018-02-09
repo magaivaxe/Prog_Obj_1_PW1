@@ -12,11 +12,12 @@ package practicework_1;
 public class PracticeWork_1
 {
     //----------- Global Variables -----------
-    private static int SIZE, MAT_SIZE, COS, SIN, TAN, ANGLES;
-    static int [] sides;
-    static double [][] matTrigo;
-    static double [] arrayAngles;
-    static boolean again = true;
+    private static int SIZE, MAT_SIZE, COS, SIN, TAN, ANGLES, option;
+    private static double area;
+    private static int [] sides;
+    private static double [][] matTrigo;
+    private static boolean again = true;
+    private static String analyse;
     //----------------------------------------
 
     /**
@@ -30,8 +31,6 @@ public class PracticeWork_1
         SIZE = 3; MAT_SIZE = 4; COS = 0; SIN = 1; TAN = 2; ANGLES = 3;
         sides = new int [SIZE];
         matTrigo = new double [SIZE][MAT_SIZE];
-        //-------------- Variables assignement ---------------
-        String analyse;
         //--------------- Objects declarations ---------------
         Messages messages;
         Triangle triangle;
@@ -39,12 +38,13 @@ public class PracticeWork_1
         //----------------------------------------------------
         //Messages object atribution
         messages = new Messages(SIZE, sides);
+        option = messages.wellcome();
         //Sides values from user
-        sides = messages.wellcome();
+        sides = messages.trigoCalculation();
         //Triangle object stribution
         triangle = new Triangle(sides);
         //Area calculation
-        triangle.getArea();
+        area = triangle.getArea();
         //Triganometry values calculation
         matTrigo = triangle.setTrigonometry();
         //Constructor types for analyse of triangles
@@ -54,7 +54,7 @@ public class PracticeWork_1
         //prinTest(analyse);
         //printestMatrix(matTrigo);
         //
-        messages.getDescription(analyse, matTrigo);
+        messages.getDescription(analyse, area, matTrigo);
         //
         again = messages.gameOver();
         }

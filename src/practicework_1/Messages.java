@@ -17,7 +17,8 @@ public class Messages
     
     //------------- Constructors -------------
     /**
-     * @param size of size array to add the data sides
+     * @param size Size array to add the data sides
+     * @param sides Array to add the sides values
      */
     public Messages (int size, int [] sides) 
     {
@@ -30,16 +31,38 @@ public class Messages
     Triangle triangle;
     //----------------------------------------
     /**
+     * 
+     * @return The option value to main
+     */
+    public int wellcome()
+    {
+        int option;
+        System.out.print("Wellcome to TRIANGLE'S GAME!!!"
+                       + "What do you want to play?"
+                       + "1 - Trigo Calculation."
+                       + "2 - Equals or Similars."
+                       + "3 - Find angles or sides");
+        //
+        read = new ReadInteger("Enter the options.", "It doesn't the option.");
+        return option = read.playOptions();
+    }
+    /**
      * @return sides array values.
      */
-    public int[] wellcome()
+    public int [] trigoCalculation()
     {
         System.out.println("------------------------------------------------\n"
-                        +  "              Triangle calculation              \n" +
-                           "------------------------------------------------\n");
+                        +  "                Trigo calculation               \n" +
+                           "------------------------------------------------\n"
+                         + "Do you want set triangle sides?");
         //
+        read = new ReadInteger("0 to not and 1 to yes.", "Enter 0 or 1 values.");
+        //If true set triangle sides else sides equals to 1
+        if(read.yesOrNot()){} 
+        else { return sides = new int []{1,1,1}; }
+        //Object atribution
         setTriangles = new SetTriangles(SIZE);
-        //
+        //Set the sides triangle
         sides = setTriangles.setSides();
         //Triangle object to call the function triangle inequality
         triangle = new Triangle(sides);
@@ -48,9 +71,11 @@ public class Messages
         else 
         {
             System.out.print("Triangle inequality don't respected.\n");
-            return wellcome();
+            return trigoCalculation();
         }
     }
+    
+    
     /**
      * Function to know if the player goes play again or not.
      * @return true if the player goes player again else false
@@ -73,15 +98,17 @@ public class Messages
     /**
      * 
      * @param type the triangle type calculated by the class Types
+     * @param area the triangle area claculated by the class Triangle
      * @param matTrigo the matrix that have trigo values: cos, sin, tan and angles
      */
-    public void getDescription(String type, final double [][] matTrigo)
+    public void getDescription(String type, double area, final double [][] matTrigo)
     { 
         //Local variables
         final int COS, SIN, TAN, ANGLES;
         COS = 0; SIN = 1; TAN = 2; ANGLES = 3;
         //
-        System.out.print("The triangle is a " + type +" and has:\n");
+        System.out.print("The " + type + " has area = "+ area +""
+                       + "and trigonometrics datas:\n");
         // 0 <= i < 4. i: cos, sin, tan, angles
         for (int i = 0; i < matTrigo[ANGLES].length; i++)
         {

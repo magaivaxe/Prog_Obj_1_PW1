@@ -44,9 +44,9 @@ public class Types extends Triangle
             //Isoceles triangle
             isIsoceles = itsIsoceles();
             //Isoceles condition
-            if (isIsoceles) { String textB = " and isoceles"; return textA + textB; }
+            if (isIsoceles) { String textB = "isoceles "; return textB + textA; }
             //Scalene triangle condition
-            else { String textC = " and scalene"; return textA + textC; }
+            else { String textC = "scalene "; return textC + textA; }
         }
         //Isoceles triangle---------------------------------------
         isIsoceles = itsIsoceles();
