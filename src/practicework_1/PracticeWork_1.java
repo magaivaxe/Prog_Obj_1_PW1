@@ -53,7 +53,7 @@ public class PracticeWork_1
      * CREER UNE SOUS CLASSE POUR COMPARER LES TRIANGLES LA COMPAHAISON PEUT ETRE FAIT PAR
      * DES BOUCLES EMBRIQUE;
             * La compahaison puet être fait pour des bucles embriqués problablement;
-     * CREATE A CONSTRUCTOR VIDE TO SIDES EQUALS TO 1.
+     * Faire une méthode description game pour une description des jeux;
      */
     
     

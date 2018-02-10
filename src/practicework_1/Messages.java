@@ -32,9 +32,10 @@ public class Messages
         int option;
         System.out.print("Wellcome to TRIANGLE'S GAME!!!\n"
                        + "What do you want to play?\n"
-                       + "1 - Trigo Calculation.\n"
-                       + "2 - Equals or Similars.\n"
-                       + "3 - Find angles or sides\n");
+                       + "1 - Trigo Calculation;\n"
+                       + "2 - Equals or Similars;\n"
+                       + "3 - Find angles or sides;\n"
+                       + "4 - Games descriptions.\n");
         //
         read = new ReadInteger("Enter your option:", 
                                "It doesn't an option.");
