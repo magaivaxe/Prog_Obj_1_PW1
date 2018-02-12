@@ -12,10 +12,10 @@ package practicework_1;
 public class TrigoCalculation 
 {
     //----------- Global Variables -----------
-    private final int SIZE, MAT_SIZE, ANGLES;
+    final int SIZE, MAT_SIZE, ANGLES;
     private double area;
     private int [] sides;
-    private double [][] matTrigo;
+    double [][] matTrigo;
     private String analyse;
     //----------------------------------------
     
@@ -31,17 +31,20 @@ public class TrigoCalculation
     //--------- Objects declarations ---------
     private Triangle triangle;
     private Types types;
-    private Messages messages = new Messages();
+    Messages messages = new Messages();
     private ReadInteger read;
     private SetTriangles setTriangles;
-    private Descriptions describe = new Descriptions();
+    Descriptions describe = new Descriptions();
     //----------------------------------------
     /**
      * Trigo calculation game
      */
     public void mainGame()
     {
-        sides = triangleSides();
+        //Game announce
+        messages.showGame("TRIGO CALCULATION", "Set sides");
+        //
+        sides = triangleSides("0: NO and 1: YES.");
         //Triangle object stribution
         triangle = new Triangle(sides);
         //Area calculation
@@ -59,14 +62,12 @@ public class TrigoCalculation
      * This function calculate the side values of one triangle.
      * @return The triangle sides values array.
      */
-    private int [] triangleSides()
+    public int [] triangleSides(String msg)
     {
         //Local variables
-        int [] sidesToReturn;
-        //Game announce
-        messages.showGame("TRIGO CALCULATION", "Set sides");
+        int [] sidesToReturn; String msgReturn = msg;
         //
-        read = new ReadInteger("0: NO and 1: YES.", "Enter 0 or 1 values!");
+        read = new ReadInteger(msg, "Enter 0 or 1 values!");
         //If true set triangle sides else sides equals to 1
         if(read.yesOrNot()){} 
         else { sidesToReturn = new int []{1,1,1}; return sidesToReturn; }
@@ -81,7 +82,7 @@ public class TrigoCalculation
         else 
         {
             System.out.print("Triangle inequality don't respected.\n");
-            return triangleSides();
+            return triangleSides(msgReturn);
         }
     }
     /**

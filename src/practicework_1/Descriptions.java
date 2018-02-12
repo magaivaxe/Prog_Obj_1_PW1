@@ -67,5 +67,10 @@ public class Descriptions
             }
         } 
     }
+    
+    public void descriptionEqOrSim(String msg)
+    {
+        System.out.print("\n" + msg + "\n");
+    }
 
 }
