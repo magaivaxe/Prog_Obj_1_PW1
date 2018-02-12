@@ -60,6 +60,7 @@ public class TrigoCalculation
     
     /**
      * This function calculate the side values of one triangle.
+     * @param msg String passed to show messages for enter numbers
      * @return The triangle sides values array.
      */
     public int [] triangleSides(String msg)
