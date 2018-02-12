@@ -32,7 +32,6 @@ public class TrigoCalculation
     private Triangle triangle;
     private Types types;
     Messages messages = new Messages();
-    private ReadInteger read;
     SetTriangles setTriangles;
     Descriptions describe = new Descriptions();
     //----------------------------------------
@@ -43,6 +42,8 @@ public class TrigoCalculation
     {
         //Game announce
         messages.showGame("TRIGO CALCULATION", "Set sides");
+        //
+        setTriangles = new SetTriangles(SIZE);
         //
         sides = setTriangles.triangleSides("0: NO and 1: YES.");
         //Triangle object stribution

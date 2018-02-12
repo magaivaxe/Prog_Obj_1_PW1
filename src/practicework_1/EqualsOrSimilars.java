@@ -17,9 +17,8 @@ public class EqualsOrSimilars extends TrigoCalculation
     private double [][] matTrigo1, matTrigo2;
     //----------------------------------------
     
-    //------------ Constructors --------------
     /**
-     * 
+     * Constrtuctor from Equals ans Similars
      */
     public EqualsOrSimilars()
     {

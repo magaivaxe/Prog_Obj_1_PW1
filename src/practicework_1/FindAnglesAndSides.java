@@ -11,5 +11,20 @@ package practicework_1;
  */
 public class FindAnglesAndSides
 {
+    //----------- Global Variables -----------
+    //----------------------------------------
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public void mainGameFindAnglesAndSides()
+    {
+        
+    }
 }

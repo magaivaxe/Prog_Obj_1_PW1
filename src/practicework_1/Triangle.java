@@ -23,6 +23,7 @@ public class Triangle
     private double [] arrayCos, arraySin, arrayTan, arrayAngles;
     private double [][] matTrigo;
     //-------------------------------------------
+    
     /**
      * 
      * @return True if the inequality is respected.
@@ -64,7 +65,8 @@ public class Triangle
     
     /**
      * 
-     * @return The Cos, Sin, Tan and Angles arrays by a matrix respectively
+     * @return The Cos, Sin, Tan array with precision +-0.0001 
+     * and Angles arrays with precision +-00.1 by a matrix respectively
      */
     public double [][] setTrigonometry()
     {
@@ -89,7 +91,7 @@ public class Triangle
             //By the Pythagorean identity cos^2(x) + sin^2(x) = 1
             arraySin[i] = Math.sqrt(1 - Math.pow(arrayCos[i], EXP));
             //By the arcsin(x) the angles are calculated
-            arrayAngles[i] = Math.toDegrees(Math.asin(arraySin[i]));
+            arrayAngles[i] = Math.round(Math.toDegrees(Math.asin(arraySin[i]))* 10) / 10;
             //Angles concatenation 
             sumAngles += arrayAngles[i];
             //By the Pythagorean identity tan^2(x) = sec^2(x) - 1
