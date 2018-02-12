@@ -33,7 +33,7 @@ public class TrigoCalculation
     private Types types;
     Messages messages = new Messages();
     private ReadInteger read;
-    private SetTriangles setTriangles;
+    SetTriangles setTriangles;
     Descriptions describe = new Descriptions();
     //----------------------------------------
     /**
@@ -44,7 +44,7 @@ public class TrigoCalculation
         //Game announce
         messages.showGame("TRIGO CALCULATION", "Set sides");
         //
-        sides = triangleSides("0: NO and 1: YES.");
+        sides = setTriangles.triangleSides("0: NO and 1: YES.");
         //Triangle object stribution
         triangle = new Triangle(sides);
         //Area calculation
@@ -58,34 +58,7 @@ public class TrigoCalculation
         describe.getDescription(analyse, area, matTrigo);
     }
     
-    /**
-     * This function calculate the side values of one triangle.
-     * @param msg String passed to show messages for enter numbers
-     * @return The triangle sides values array.
-     */
-    public int [] triangleSides(String msg)
-    {
-        //Local variables
-        int [] sidesToReturn; String msgReturn = msg;
-        //
-        read = new ReadInteger(msg, "Enter 0 or 1 values!");
-        //If true set triangle sides else sides equals to 1
-        if(read.yesOrNot()){} 
-        else { sidesToReturn = new int []{1,1,1}; return sidesToReturn; }
-        //Object atribution
-        setTriangles = new SetTriangles(SIZE);
-        //Set the sides triangle
-        sidesToReturn = setTriangles.setSides();
-        //Triangle object to call the function triangle inequality
-        triangle = new Triangle(sidesToReturn);
-        //If true return the sides, else return function to reset
-        if (triangle.triangleInequality()) { return sidesToReturn; }
-        else 
-        {
-            System.out.print("Triangle inequality don't respected.\n");
-            return triangleSides(msgReturn);
-        }
-    }
+    
     /**
      * @param type String to print
      */

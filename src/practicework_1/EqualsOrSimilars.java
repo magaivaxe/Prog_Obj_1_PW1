@@ -42,8 +42,8 @@ public class EqualsOrSimilars extends TrigoCalculation
         //Game announce
         messages.showGame("EQUALS OR SIMILARS", "Set sides of two triangles");
         //Set the triangles 1 and 2
-        trianglesSides[TRIANGLE1] = triangleSides("First - 0: NO and 1: YES.");
-        trianglesSides[TRIANGLE2] = triangleSides("Second - 0: NO and 1: YES.");
+        trianglesSides[TRIANGLE1] = setTriangles.triangleSides("First - 0: NO and 1: YES.");
+        trianglesSides[TRIANGLE2] = setTriangles.triangleSides("Second - 0: NO and 1: YES.");
         //Triangles objects atributions
         triangle1 = new Triangle(trianglesSides[TRIANGLE1]);
         triangle2 = new Triangle(trianglesSides[TRIANGLE2]);
