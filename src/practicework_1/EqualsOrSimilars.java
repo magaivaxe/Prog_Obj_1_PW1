@@ -9,6 +9,49 @@ package practicework_1;
  *
  * @author sire_marcos
  */
-public class EqualsOrSimilars {
+public class EqualsOrSimilars 
+{
+    //----------- Global Variables -----------
+    private final int SIZE, TRIANGLE_SIZE, MAT_SIZE, ANGLES;
+    private int [][] trianglesSides;
+    private int [][] matTrigo;
+    //----------------------------------------
     
+    //------------ Constructors --------------
+    public EqualsOrSimilars()
+    {
+        
+    }
+    //----------------------------------------
+    
+    //--------- Objects declarations ---------
+    //----------------------------------------
+    
+    /**
+     * 
+     */
+    public void mainGame()
+    {
+        //set the triangles
+        
+        //Trigo Calculation
+        
+        //description
+    }
+    /**
+     * 
+     * @return 
+     */
+    private boolean theyAreEquals()
+    {
+        
+    }
+    /**
+     * 
+     * @return 
+     */
+    private boolean theyAreSimilars()
+    {
+        
+    }
 }

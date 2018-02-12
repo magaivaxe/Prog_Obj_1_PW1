@@ -12,7 +12,7 @@ package practicework_1;
 public class TrigoCalculation 
 {
     //----------- Global Variables -----------
-    private final int SIZE, MAT_SIZE, COS, SIN, TAN, ANGLES;
+    private final int SIZE, MAT_SIZE, ANGLES;
     private double area;
     private int [] sides;
     private double [][] matTrigo;
@@ -22,7 +22,7 @@ public class TrigoCalculation
     //------------ Constructors --------------
     public TrigoCalculation()
     {
-        SIZE = 3; MAT_SIZE = 4; COS = 0; SIN = 1; TAN = 2; ANGLES = 3;
+        SIZE = 3; MAT_SIZE = 4; ANGLES = 3;
         sides = new int [SIZE];
         matTrigo = new double [SIZE][MAT_SIZE];
     }
@@ -35,7 +35,7 @@ public class TrigoCalculation
     private ReadInteger read;
     private SetTriangles setTriangles;
     private Descriptions describe = new Descriptions();
-    //-----------------------------------------
+    //----------------------------------------
     /**
      * Trigo calculation game
      */
