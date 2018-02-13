@@ -12,10 +12,10 @@ package practicework_1;
 public class TrigoCalculation 
 {
     //----------- Global Variables -----------
-    final int SIZE, MAT_SIZE, ANGLES;
+    private final int SIZE, MAT_SIZE, ANGLES;
     private double area;
     private int [] sides;
-    double [][] matTrigo;
+    private double [][] matTrigo;
     private String analyse;
     //----------------------------------------
     
@@ -31,9 +31,9 @@ public class TrigoCalculation
     //--------- Objects declarations ---------
     private Triangle triangle;
     private Types types;
-    Messages messages = new Messages();
-    SetTriangles setTriangles;
-    Descriptions describe = new Descriptions();
+    private Messages messages = new Messages();
+    private SetTriangles setTriangles;
+    private Descriptions describe = new Descriptions();
     //----------------------------------------
     /**
      * Trigo calculation game

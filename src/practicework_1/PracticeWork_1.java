@@ -39,7 +39,7 @@ public class PracticeWork_1
         {
             case 1: trigo.mainGame();
                 break;
-            case 2: equalsOrSimilars.mainGameEqualsOrSimilars();
+            case 2: equalsOrSimilars.mainEqualsOrSimilars();
                 break;
             case 3:
                 break;

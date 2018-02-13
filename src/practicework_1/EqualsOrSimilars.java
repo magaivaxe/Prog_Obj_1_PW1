@@ -9,10 +9,10 @@ package practicework_1;
  *
  * @author sire_marcos
  */
-public class EqualsOrSimilars extends TrigoCalculation
+public class EqualsOrSimilars
 {
     //----------- Global Variables -----------
-    private final int TRI_N, TRIANGLE1, TRIANGLE2;
+    private final int TRI_N, TRIANGLE1, TRIANGLE2, SIZE, MAT_SIZE, ANGLES;
     private int [][] trianglesSides;
     private double [][] matTrigo1, matTrigo2;
     //----------------------------------------
@@ -23,6 +23,7 @@ public class EqualsOrSimilars extends TrigoCalculation
     public EqualsOrSimilars()
     {
         TRI_N = 2; TRIANGLE1 = 0; TRIANGLE2 = 1;
+        SIZE = 3; MAT_SIZE = 4; ANGLES = 3;
         trianglesSides = new int[SIZE][TRI_N];
         matTrigo1 = new double[SIZE][MAT_SIZE];
         matTrigo2 = new double[SIZE][MAT_SIZE];
@@ -30,14 +31,21 @@ public class EqualsOrSimilars extends TrigoCalculation
     //----------------------------------------
     
     //--------- Objects declarations ---------
-    Triangle triangle1, triangle2;
+    private Triangle triangle1, triangle2;
+    private Messages messages;
+    private SetTriangles setTriangles;
+    private Descriptions describe;
     //----------------------------------------
     
     /**
      * 
      */
-    public void mainGameEqualsOrSimilars()
+    public void mainEqualsOrSimilars()
     {
+        //Objects atributions
+        setTriangles = new SetTriangles(SIZE);
+        messages = new Messages();
+        describe = new Descriptions();
         //Game announce
         messages.showGame("EQUALS OR SIMILARS", "Set sides of two triangles");
         //Set the triangles 1 and 2
