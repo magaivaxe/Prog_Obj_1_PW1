@@ -61,9 +61,9 @@ public class Types extends Triangle
      * @return true if the triangle is equilateral.
      */
     private boolean itsEquilateral()
-    {return (SIDES[super.AB] == SIDES[super.BC] &&
-             SIDES[super.BC] == SIDES[super.CA] &&
-             SIDES[super.AB] == SIDES[super.CA]); }
+    {return (sides[super.AB] == sides[super.BC] &&
+             sides[super.BC] == sides[super.CA] &&
+             sides[super.AB] == sides[super.CA]); }
     /**
      * @return true if any angle value is 90
      */
@@ -75,16 +75,16 @@ public class Types extends Triangle
      * @return True if two sides are equals
      */
     private boolean itsIsoceles()
-    { return (SIDES[super.AB] == SIDES[super.BC] ||
-              SIDES[super.BC] == SIDES[super.CA] ||
-              SIDES[super.AB] == SIDES[super.CA]); }
+    { return (sides[super.AB] == sides[super.BC] ||
+              sides[super.BC] == sides[super.CA] ||
+              sides[super.AB] == sides[super.CA]); }
     /**
      * @return True if all sides are differents
      */
     private boolean itsScalene()
-    { return (SIDES[super.AB] != SIDES[super.BC] &&
-              SIDES[super.BC] != SIDES[super.CA] &&
-              SIDES[super.AB] != SIDES[super.CA]); }   
+    { return (sides[super.AB] != sides[super.BC] &&
+              sides[super.BC] != sides[super.CA] &&
+              sides[super.AB] != sides[super.CA]); }   
     
     
     

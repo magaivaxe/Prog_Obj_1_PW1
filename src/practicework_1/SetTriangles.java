@@ -85,25 +85,24 @@ public class SetTriangles
      * @param nSides
      * @return 
      */
-    public double [] setPartialSides(int nSides)
+    public int [] setPartialSides(int nSides)
     {
         //local variables
-        double [] sides = new double [SIZE]; int count = 0; boolean yes;
+        int [] sides = new int [SIZE]; int count = 0; boolean yes;
         //Object atribution
         readYesOrNot = new ReadInteger("0: Not or 1: Yes", "It isn't 0 ot 1.");
-        readSides = new ReadInteger("Enter triangle side:",
-                               "It isn't a side");
+        readSides = new ReadInteger("Enter triangle side:", "It isn't a side");
         //Loop question
         int i = 0; while (i < SIZE)
         {   
-            //COndition last question
-            if (i < nSides)
+            //Condition for enter always the number of sides without questions
+            if (i < nSides && i <= count)
             {
                 System.out.println(
                     "Enter the side" + SIDE_NAME[i] + "?");
                 yes = readYesOrNot.yesOrNot(OP_YES, OP_NOT);
             } else { yes = true; }
-            //
+            //Response condition to enter the side 
             if(yes)
             {
                 System.out.println("Side " + (SIDE_NAME[i]) + ": ");
@@ -111,10 +110,7 @@ public class SetTriangles
                 sides[i] = readSides.trueSide();
                 count++;
             }
-            else 
-            {
-                sides[i] = 0;
-            }
+            else {sides[i] = 0; }
             i++;
         }
         //if don't return the correct number of sides recall the function

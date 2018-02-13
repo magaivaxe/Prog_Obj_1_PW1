@@ -12,21 +12,24 @@ package practicework_1;
 public class FindAnglesAndSides
 {
     //----------- Global Variables -----------
-    private final int SIZE, AB, BC, CA, A, B, C, ONE, TWO;
-    private double [] sides;
+    private final int SIZE, MAT_SIZE, AB, BC, CA, A, B, C, ONE, TWO;
+    private int [] sides;
     private double [] angles;
+    private double [][] matTrigo;
     //----------------------------------------
     
     public FindAnglesAndSides()
     {
-        SIZE = 3; AB = 0; BC = 1; CA = 2;
+        SIZE = 3; MAT_SIZE = 4; AB = 0; BC = 1; CA = 2;
         A = 0; B = 1; C = 2; ONE = 1; TWO = 2;
-        sides =  new double [SIZE]; angles = new double[SIZE];
+        sides =  new int [SIZE]; angles = new double[SIZE];
+        matTrigo = new double[SIZE][MAT_SIZE];
     }
     
     //--------- Objects declarations ---------
     Messages messages;
     SetTriangles setTriangles;
+    Triangle partialTriangle;
     //----------------------------------------
     
     /**
@@ -46,12 +49,19 @@ public class FindAnglesAndSides
             case 0:
                 sides = setTriangles.setPartialSides(TWO);
                 angles = setTriangles.setPartialAngles(ONE);
+                partialTriangle = new Triangle(sides);
+                int theSide1 = partialTriangle.rechercheSide(sides);
+                matTrigo = partialTriangle.setPartialTrigonometry(angles, theSide1);
                 break;
             //One side two angles
             case 1:
                 sides = setTriangles.setPartialSides(ONE);
                 angles = setTriangles.setPartialAngles(TWO);
+                partialTriangle = new Triangle(sides);
+                int theSide2 = partialTriangle.rechercheSide(sides);
+                matTrigo = partialTriangle.setPartialTrigonometry(angles, theSide2);
                 break;
         }
+       
     }
 }
