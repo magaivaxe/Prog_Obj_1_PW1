@@ -88,17 +88,22 @@ public class SetTriangles
     public double [] setPartialSides(int nSides)
     {
         //local variables
-        double [] sides = new double [SIZE]; int count = 0;
+        double [] sides = new double [SIZE]; int count = 0; boolean yes;
         //Object atribution
         readYesOrNot = new ReadInteger("0: Not or 1: Yes", "It isn't 0 ot 1.");
         readSides = new ReadInteger("Enter triangle side:",
                                "It isn't a side");
         //Loop question
         int i = 0; while (i < SIZE)
-        {            
-            System.out.println(
+        {   
+            //COndition last question
+            if (i < nSides)
+            {
+                System.out.println(
                     "Enter the side" + SIDE_NAME[i] + "?");
-            boolean yes = readYesOrNot.yesOrNot(OP_YES, OP_NOT);
+                yes = readYesOrNot.yesOrNot(OP_YES, OP_NOT);
+            } else { yes = true; }
+            //
             if(yes)
             {
                 System.out.println("Side " + (SIDE_NAME[i]) + ": ");
