@@ -12,17 +12,25 @@ package practicework_1;
 public class SetTriangles 
 {
     //----------- Global Variables -----------
-    private final int SIZE;
+    private final int SIZE, OP_YES, OP_NOT, A, B, C;
+    final String [] SIDE_NAME, ANGLE_NAME;
     //----------------------------------------
     
     //------------- Constructors -------------
     /**
      * @param size of size array to add the data sides
      */
-    public SetTriangles (int size) { this.SIZE = size; }
+    public SetTriangles () 
+    { 
+        SIZE = 3; OP_NOT = 0; OP_YES = 1; A = 0; B = 1; C = 2;
+        SIDE_NAME = new String [] {"AB", "BC", "CA"};
+        ANGLE_NAME = new String [] {"A", "B", "C"};
+    }
     
     //-------- Objects declarations ----------
-    ReadInteger read;
+    ReadInteger readYesOrNot;
+    ReadInteger readSides;
+    ReadInteger readAngles;
     Triangle triangle;
     //----------------------------------------
     
@@ -36,9 +44,9 @@ public class SetTriangles
         //Local variables
         int [] sidesToReturn; String msgReturn = msg;
         //
-        read = new ReadInteger(msg, "Enter 0 or 1 values!");
+        readYesOrNot = new ReadInteger(msg, "Enter 0 or 1 values!");
         //If true set triangle sides else sides equals to 1
-        if(read.yesOrNot()){} 
+        if(readYesOrNot.yesOrNot(OP_YES, OP_NOT)){} 
         else { sidesToReturn = new int []{1,1,1}; return sidesToReturn; }
         //Set the sides triangle
         sidesToReturn = setSides();
@@ -60,22 +68,90 @@ public class SetTriangles
     {
         //Local variables
         int [] sides = new int [SIZE];
-        final String [] SIDE_NAMES = {"AB", "BC", "CA"};
         //Object atribution
-        read = new ReadInteger("Enter the triangle side:",
-                               "This isn't a triangle side");
+        readSides = new ReadInteger("Enter triangle side:",
+                               "It isn't a side");
         //Loop to set sides 
         for(int i = 0; i < 3; i++)
         {
-            System.out.println("Side " + (SIDE_NAMES[i]) + ": ");
-            //Side is > 0 else side = 1
-            int side = read.trueSide(SIZE);
+            System.out.println("Side " + (SIDE_NAME[i]) + ": ");
             //Add side to array sides
-            sides[i] = side;
+            sides[i] = readSides.trueSide();
         }
         return sides;
     }
-    
+    /**
+     * 
+     * @param nSides
+     * @return 
+     */
+    public double [] setPartialSides(int nSides)
+    {
+        //local variables
+        double [] sides = new double [SIZE]; int count = 0;
+        //Object atribution
+        readYesOrNot = new ReadInteger("0: Not or 1: Yes", "It isn't 0 ot 1.");
+        readSides = new ReadInteger("Enter triangle side:",
+                               "It isn't a side");
+        //Loop question
+        int i = 0; while (i < SIZE)
+        {            
+            System.out.println(
+                    "Enter the side" + SIDE_NAME[i] + "?");
+            boolean yes = readYesOrNot.yesOrNot(OP_YES, OP_NOT);
+            if(yes)
+            {
+                System.out.println("Side " + (SIDE_NAME[i]) + ": ");
+                //Side is > 0 else side = 1
+                sides[i] = readSides.trueSide();
+                count++;
+            }
+            else 
+            {
+                sides[i] = 0;
+            }
+            i++;
+        }
+        //if don't return the correct number of sides recall the function
+        if (count == nSides) { return sides; }
+        else 
+        { 
+            System.out.println("Enter " + nSides + " sides!");
+            return setPartialSides(nSides);
+        }
+    }
+    /**
+     * 
+     * @param nAngles Number of angles that the function will return
+     * @return the angles array with B value and A = 0 and C = 0
+     * or A and B values and C = 0
+     */
+    public double [] setPartialAngles(int nAngles)
+    {
+        double [] angles = new double[SIZE];
+        //
+        readAngles = new ReadInteger("Enter triangle angle:",
+                               "It isn't a angle");
+        //
+        if (nAngles == 2)
+        {
+            for (int i = 0; i < nAngles; i++) 
+            {
+                System.out.println("Angle " + (ANGLE_NAME[i]) + ": ");
+                //Side is > 0 else side = 1
+                angles[i] = (double)readAngles.trueSide();
+            }
+            angles[C] = 0;
+        } 
+        else 
+        {
+            System.out.println("Angle " + (ANGLE_NAME[B]) + ": ");
+            //Side is > 0 else side = 1
+            angles[B] = (double)readAngles.trueSide();
+            angles[A] = 0; angles[C] = 0;
+        }
+        return angles;
+    }
     
     
     

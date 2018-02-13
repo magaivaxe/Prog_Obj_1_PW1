@@ -28,7 +28,7 @@ public class EqualsOrSimilars
         matTrigo1 = new double[SIZE][MAT_SIZE];
         matTrigo2 = new double[SIZE][MAT_SIZE];
     }
-    //----------------------------------------
+    
     
     //--------- Objects declarations ---------
     private Triangle triangle1, triangle2;
@@ -43,11 +43,11 @@ public class EqualsOrSimilars
     public void mainEqualsOrSimilars()
     {
         //Objects atributions
-        setTriangles = new SetTriangles(SIZE);
+        setTriangles = new SetTriangles();
         messages = new Messages();
         describe = new Descriptions();
         //Game announce
-        messages.showGame("EQUALS OR SIMILARS", "Set sides of two triangles");
+        messages.showGame("EQUALS OR SIMILARS", "Set sides of triangles?");
         //Set the triangles 1 and 2
         trianglesSides[TRIANGLE1] = setTriangles.triangleSides("First - 0: NO and 1: YES.");
         trianglesSides[TRIANGLE2] = setTriangles.triangleSides("Second - 0: NO and 1: YES.");

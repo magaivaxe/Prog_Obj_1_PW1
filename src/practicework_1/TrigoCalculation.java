@@ -41,9 +41,9 @@ public class TrigoCalculation
     public void mainGame()
     {
         //Game announce
-        messages.showGame("TRIGO CALCULATION", "Set sides");
+        messages.showGame("TRIGO CALCULATION", "Set triangle sides?");
         //
-        setTriangles = new SetTriangles(SIZE);
+        setTriangles = new SetTriangles();
         //
         sides = setTriangles.triangleSides("0: NO and 1: YES.");
         //Triangle object stribution

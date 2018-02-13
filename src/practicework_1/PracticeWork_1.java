@@ -19,6 +19,7 @@ public class PracticeWork_1
     static Messages messages;
     static TrigoCalculation trigo;
     static EqualsOrSimilars equalsOrSimilars;
+    static FindAnglesAndSides findAnglesAndSides;
     //----------------------------------------
     
     /**
@@ -32,6 +33,7 @@ public class PracticeWork_1
         messages = new Messages();
         trigo = new TrigoCalculation();
         equalsOrSimilars = new EqualsOrSimilars();
+        findAnglesAndSides = new FindAnglesAndSides();
         //
         option = messages.wellcome();
         //Options game
@@ -41,7 +43,9 @@ public class PracticeWork_1
                 break;
             case 2: equalsOrSimilars.mainEqualsOrSimilars();
                 break;
-            case 3:
+            case 3: findAnglesAndSides.mainFindAnglesAndSides();
+                break;
+            case 4: messages.gameDescriptions();
                 break;
         }
         //Play again: true or false
